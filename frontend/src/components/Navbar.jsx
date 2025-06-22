@@ -22,11 +22,16 @@ export default function Navbar() {
 
   const menuItems = [
     { name: "Home", icon: <Home size={20} />, color: "" },
-    {
-      name: "Assignment",
-      icon: <FileText size={20} />,
-      color: "",
-    },
+    // Only show Assignment if token exists (user is logged in)
+    ...(token
+      ? [
+          {
+            name: "Assignment",
+            icon: <FileText size={20} />,
+            color: "",
+          },
+        ]
+      : []),
     {
       name: "Submission",
       icon: <List size={20} />,

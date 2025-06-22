@@ -1,15 +1,15 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './components/Navbar';
-import SexySidebarAuth from './pages/Login';
+import Login from './pages/Login';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     
       <Router>
       <Routes>
-        <Route path="/" element={<Sidebar />} />
-        <Route path="/login" element={<SexySidebarAuth />} />
+        <Route path="/" element={<Navbar /> } />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );

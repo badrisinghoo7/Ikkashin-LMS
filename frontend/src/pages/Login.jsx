@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Eye, EyeOff, User, Mail, Lock, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-export default function AuthBlue() {
+export default function Login() {
   const [activeForm, setActiveForm] = useState("login");
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
