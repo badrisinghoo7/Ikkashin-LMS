@@ -60,8 +60,6 @@ Built with **React**, **Node.js**, **Express**, **MongoDB**,**Multer**,**Cloudna
 Ikkashin-LMS/
 │
 ├── backend/
-│   ├── controllers/
-│   │   └── submissionController.js
 │   ├── middleware/
 │   │   └── auth.js
 │   ├── models/
@@ -70,9 +68,7 @@ Ikkashin-LMS/
 │   ├── routes/
 │   │   └── submissionRoutes.js
 │   │   └── userRoutes.js
-│   ├── uploads/
-│   ├── app.js
-│   └── server.js
+│   └── index.js
 │
 ├── frontend/
 │   ├── public/
@@ -84,14 +80,12 @@ Ikkashin-LMS/
 │   │   │   ├── Login.jsx
 │   │   │   ├── Signup.jsx
 │   │   │   ├── SubmissionForm.jsx
-│   │   │   ├── Home.jsx
 │   │   ├── App.jsx
 │   │   ├── index.js
 │   ├── tailwind.config.js
 │   └── package.json
 │
 ├── README.md
-└── package.json
 ```
 
 ---
@@ -108,6 +102,20 @@ Ikkashin-LMS/
   submittedBy: ObjectId    // Reference to User
 }
 ```
+
+## ENV for backend
+
+```
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.frdj16f.mongodb.net/ikkashin-lms?retryWrites=true&w=majority&appName=Cluster0
+PORT=5000
+JWT_SECRET=your_jwt_secret
+
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+```
+
 
 ---
 
