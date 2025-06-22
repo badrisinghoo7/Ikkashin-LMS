@@ -103,20 +103,6 @@ Ikkashin-LMS/
 }
 ```
 
-## ENV for backend
-
-```
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.frdj16f.mongodb.net/ikkashin-lms?retryWrites=true&w=majority&appName=Cluster0
-PORT=5000
-JWT_SECRET=your_jwt_secret
-
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-
-```
-
-
 ---
 
 ## 🔑 Authentication
@@ -139,7 +125,19 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
    ```bash
    cd backend
    npm install
-   # Set up your .env file for MongoDB URI and JWT secret
+
+   ## ENV for backend
+
+```
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.frdj16f.mongodb.net/ikkashin-lms?retryWrites=true&w=majority&appName=Cluster0
+PORT=5000
+JWT_SECRET=your_jwt_secret
+
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+```
    npm run dev 
    ```
 
