@@ -26,8 +26,8 @@ export default function AuthBlue() {
     try {
       const endpoint =
         activeForm === "login"
-          ? "http://localhost:5000/api/users/login"
-          : "http://localhost:5000/api/register";
+          ? "https://ikkashin-lms.onrender.com/api/users/login"
+          : "https://ikkashin-lms.onrender.com/api/register";
       const payload =
         activeForm === "login"
           ? {

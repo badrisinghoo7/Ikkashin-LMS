@@ -17,7 +17,7 @@ export default function SubmissionCard({ submission }) {
       </div>
       {submission.fileUrl && (
         <a
-          href={submission.fileUrl}
+          href={submission.attachmentUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 underline text-sm font-medium"

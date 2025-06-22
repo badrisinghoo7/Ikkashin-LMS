@@ -87,7 +87,7 @@ export default function AssignmentSubmissionForm() {
         formDataToSend.append('fileUrl', fields.fileUrl);
       }
 
-      const response = await fetch('http://localhost:5000/api/submissions/submit', {
+      const response = await fetch('https://ikkashin-lms.onrender.com/api/submissions/submit', {
         method: 'POST',
         body: formDataToSend
       });
