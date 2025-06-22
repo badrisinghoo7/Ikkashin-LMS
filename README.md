@@ -7,8 +7,8 @@ Built with **React**, **Node.js**, **Express**, **MongoDB**,**Multer**,**Cloudna
 
 ## 🚀 Live Demo
 
-- **Frontend:** [URL](https://ikkashin-lms.vercel.app/login)
-- **Backend:** [URL](https://ikkashin-lms.onrender.com/)
+- **Frontend:** [URL:https://ikkashin-lms.vercel.app/login](https://ikkashin-lms.vercel.app/login)
+- **Backend:** [URL:https://ikkashin-lms.onrender.com/](https://ikkashin-lms.onrender.com/)
 
 ---
 
