@@ -9,8 +9,12 @@ dotenv.config();
 const app = express();
 
 // Middlewares
-app.use(cors());
-app.use(express.json()); // to accept JSON data
+app.use(cors(
+  {
+    origin: '*',
+  }
+));
+app.use(express.json());
 
 // Routes
 app.use('/api/users', userRoutes);
