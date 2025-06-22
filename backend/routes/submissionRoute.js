@@ -19,7 +19,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // ✅ POST: Submit Assignment
-router.post('/submit', upload.single('file'), async (req, res) => {
+router.post('/submit', upload.single('fileUrl'), async (req, res) => {
   try {
     const { title, description, studentName, studentId, submittedBy } = req.body;
 
