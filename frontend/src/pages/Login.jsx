@@ -7,7 +7,7 @@ export default function AuthBlue() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    userName: "",
+    username: "",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -27,18 +27,18 @@ export default function AuthBlue() {
       const endpoint =
         activeForm === "login"
           ? "https://ikkashin-lms.onrender.com/api/users/login"
-          : "https://ikkashin-lms.onrender.com/api/register";
+          : "https://ikkashin-lms.onrender.com/api/users/register";
       const payload =
         activeForm === "login"
           ? {
-              email: formData.email,
-              password: formData.password,
-            }
+            email: formData.email,
+            password: formData.password,
+          }
           : {
-              userName: formData.userName,
-              email: formData.email,
-              password: formData.password,
-            };
+            username: formData.username,
+            email: formData.email,
+            password: formData.password,
+          };
 
       const response = await fetch(endpoint, {
         method: "POST",
@@ -51,13 +51,13 @@ export default function AuthBlue() {
       const result = await response.json();
 
       if (response.ok) {
-        alert(
-          `${activeForm === "login" ? "Login" : "Registration"} successful!`
-        );
-        navigate("/");
-        localStorage.setItem("token", JSON.stringify(result.token));
-        localStorage.setItem("userId", JSON.stringify(result.userId));
-        // Redirect or further logic here
+        if (activeForm === "login") {
+          localStorage.setItem("token", JSON.stringify(result.token));
+          localStorage.setItem("userId", JSON.stringify(result.userId));
+          navigate("/");
+        } else {
+          navigate("/login");
+        }
       } else {
         alert(`Error: ${result.message || "Something went wrong"}`);
       }
@@ -87,22 +87,20 @@ export default function AuthBlue() {
           <button
             onClick={() => setActiveForm("login")}
             disabled={loading}
-            className={`px-6 py-2 rounded-xl font-semibold transition-all duration-300 ${
-              activeForm === "login"
+            className={`px-6 py-2 rounded-xl font-semibold transition-all duration-300 ${activeForm === "login"
                 ? "bg-blue-600 text-white"
                 : "bg-blue-100 text-blue-700 hover:bg-blue-200"
-            }`}
+              }`}
           >
             Login
           </button>
           <button
             onClick={() => setActiveForm("register")}
             disabled={loading}
-            className={`px-6 py-2 rounded-xl font-semibold transition-all duration-300 ${
-              activeForm === "register"
+            className={`px-6 py-2 rounded-xl font-semibold transition-all duration-300 ${activeForm === "register"
                 ? "bg-blue-600 text-white"
                 : "bg-blue-100 text-blue-700 hover:bg-blue-200"
-            }`}
+              }`}
           >
             Sign Up
           </button>
@@ -113,9 +111,9 @@ export default function AuthBlue() {
               <User className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-400" />
               <input
                 type="text"
-                name="userName"
+                name="username"
                 placeholder="Username"
-                value={formData.userName}
+                value={formData.username}
                 onChange={handleInputChange}
                 className="w-full pl-12 pr-4 py-3 rounded-xl border border-blue-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none bg-blue-50 text-blue-900"
                 required

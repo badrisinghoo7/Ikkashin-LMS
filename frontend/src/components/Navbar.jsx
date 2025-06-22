@@ -85,11 +85,10 @@ export default function Navbar() {
                         setActiveItem(item.name);
                       }
                     }}
-                    className={`group flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 ${
-                      activeItem === item.name
+                    className={`group flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-300 ${activeItem === item.name
                         ? "bg-blue-600 text-white shadow"
                         : "bg-blue-50 hover:bg-blue-100 text-blue-700"
-                    }`}
+                      }`}
                   >
                     <span className="text-xl">{item.icon}</span>
                     <span className="font-semibold text-lg">{item.name}</span>
@@ -158,11 +157,10 @@ export default function Navbar() {
                         setActiveItem(item.name);
                       }
                     }}
-                    className={`w-full flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-300 mb-2 ${
-                      activeItem === item.name
+                    className={`w-full flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-300 mb-2 ${activeItem === item.name
                         ? "bg-blue-600 text-white shadow"
                         : "bg-blue-50 hover:bg-blue-100 text-blue-700"
-                    }`}
+                      }`}
                   >
                     <span className="text-xl">{item.icon}</span>
                     <span className="font-semibold text-lg">{item.name}</span>
@@ -219,26 +217,58 @@ export default function Navbar() {
             </div>
 
             {activeItem === "Home" && (
-             <div className="text-blue-700 mt-4 space-y-4 leading-relaxed">
-  <p>
-    🚀 Welcome to the all-new <span className="font-semibold text-blue-900">Ikkashin Student Hub</span> – your one-stop digital space to stay ahead in your academic journey.
-  </p>
+              <div className="text-blue-800 mt-6 space-y-6 leading-relaxed">
+                {/* Welcome Section */}
+                <div className="bg-gradient-to-r from-blue-50 via-blue-100 to-white rounded-2xl p-6 shadow-sm border border-blue-200">
+                  <h2 className="text-3xl font-bold text-blue-700 mb-2">🎓 Welcome, Future Leader!</h2>
+                  <p className="text-blue-600 text-lg">
+                    This isn't just a dashboard — it's your academic command center. Designed with passion, powered by simplicity, and built for your success.
+                  </p>
+                </div>
 
-  <p>
-    This platform is crafted with students in mind — combining smart tools, effortless navigation, and sleek design to make learning management easy and efficient.
-  </p>
+                {/* Highlights Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white border border-blue-100 rounded-xl p-5 shadow hover:shadow-lg transition duration-300">
+                    <h3 className="text-xl font-semibold text-blue-700 mb-2">📁 Smart Submissions</h3>
+                    <p className="text-blue-500">
+                      Upload your assignments with ease. Drag, drop, or click — it just works.
+                    </p>
+                  </div>
+                  <div className="bg-white border border-blue-100 rounded-xl p-5 shadow hover:shadow-lg transition duration-300">
+                    <h3 className="text-xl font-semibold text-blue-700 mb-2">📈 Instant Insights</h3>
+                    <p className="text-blue-500">
+                      Keep tabs on your submissions, track progress, and stay ahead with real-time feedback.
+                    </p>
+                  </div>
+                  <div className="bg-white border border-blue-100 rounded-xl p-5 shadow hover:shadow-lg transition duration-300">
+                    <h3 className="text-xl font-semibold text-blue-700 mb-2">🔔 Smart Notifications</h3>
+                    <p className="text-blue-500">
+                      Never miss a deadline. Get updates when it's time to act — before it's too late.
+                    </p>
+                  </div>
+                  <div className="bg-white border border-blue-100 rounded-xl p-5 shadow hover:shadow-lg transition duration-300">
+                    <h3 className="text-xl font-semibold text-blue-700 mb-2">🌐 Connected Learning</h3>
+                    <p className="text-blue-500">
+                      Access course resources, announcements, and schedules from anywhere in the world.
+                    </p>
+                  </div>
+                </div>
 
-  <ul className="list-disc list-inside ml-4">
-    <li>📤 Seamlessly submit your assignments with file upload support</li>
-    <li>📊 Instantly track your submission status in real-time</li>
-    <li>🧾 Access detailed feedback and submission history anytime</li>
-    <li>📚 Stay connected with upcoming tasks and academic announcements</li>
-  </ul>
+                {/* Call to Action */}
+                <div className="bg-blue-50 p-6 rounded-xl mt-6 border border-blue-100 text-center shadow-sm">
+                  <h3 className="text-2xl font-bold text-blue-700 mb-3">🛠️ Explore. Submit. Succeed.</h3>
+                  <p className="text-blue-600 text-base mb-4">
+                    Use the navigation menu to submit your work, view submissions, or manage your academic journey.
+                  </p>
+                  <button
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-full transition duration-200"
+                  >
+                    Get Started Now
+                  </button>
+                </div>
+              </div>
 
-  <p>
-    Use the menu above to explore the full features of this portal — whether you're submitting, checking, or simply staying updated. We're here to support your success! 🎓
-  </p>
-</div>
 
             )}
             {activeItem === "Assignment" && (
@@ -282,11 +312,10 @@ export default function Navbar() {
                         {[...Array(totalPages)].map((_, idx) => (
                           <button
                             key={idx}
-                            className={`px-3 py-1 rounded font-semibold ${
-                              page === idx + 1
+                            className={`px-3 py-1 rounded font-semibold ${page === idx + 1
                                 ? "bg-blue-600 text-white"
                                 : "bg-blue-50 text-blue-700"
-                            }`}
+                              }`}
                             onClick={() => setPage(idx + 1)}
                           >
                             {idx + 1}
