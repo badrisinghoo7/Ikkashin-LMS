@@ -16,7 +16,7 @@ Built with **React**, **Node.js**, **Express**, **MongoDB**, **Multer**, **Cloud
 
 - **User Authentication:** Secure login and signup using JWT.
 - **Assignment Submission:** Upload assignments with title, description, file (PDF/image), student name, and student ID.
-- **View Submissions:** See all your submissions in a beautiful, paginated card layout.
+- **View Submissions:** See all your submissions in a beautiful card layout.
 - **Responsive UI:** Looks great on all devices, powered by TailwindCSS.
 - **Role-based Navigation:** Assignment upload only visible to logged-in users.
 - **Logout:** Securely log out and clear your session.
