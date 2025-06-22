@@ -1,14 +1,14 @@
 # Ikkashin LMS
 
 A modern, clean, and responsive Learning Management System for students to manage assignments, submissions, and academic progress.  
-Built with **React**, **Node.js**, **Express**, **MongoDB**,**Multer**,**Cloudnary**, **TailwindCSS**, and **JWT authentication**.
+Built with **React**, **Node.js**, **Express**, **MongoDB**, **Multer**, **Cloudinary**, **TailwindCSS**, and **JWT authentication**.
 
 ---
 
 ## 🚀 Live Demo
 
-- **Frontend:** [URL:https://ikkashin-lms.vercel.app/login](https://ikkashin-lms.vercel.app/login)
-- **Backend:** [URL:https://ikkashin-lms.onrender.com/](https://ikkashin-lms.onrender.com/)
+- **Frontend:** [https://ikkashin-lms.vercel.app/login](https://ikkashin-lms.vercel.app/login)
+- **Backend:** [https://ikkashin-lms.onrender.com/](https://ikkashin-lms.onrender.com/)
 
 ---
 
@@ -21,6 +21,7 @@ Built with **React**, **Node.js**, **Express**, **MongoDB**,**Multer**,**Cloudna
 - **Role-based Navigation:** Assignment upload only visible to logged-in users.
 - **Logout:** Securely log out and clear your session.
 - **MongoDB Database:** Robust and scalable data storage.
+- **File Uploads:** Handled with Multer and stored on Cloudinary.
 
 ---
 
@@ -49,8 +50,8 @@ Built with **React**, **Node.js**, **Express**, **MongoDB**,**Multer**,**Cloudna
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB (Mongoose)
 - **Authentication:** JWT (jsonwebtoken)
-- **File Uploads:** Multer (for handling file uploads)
-- **Deployment:** Render
+- **File Uploads:** Multer (for handling file uploads), Cloudinary (for file storage)
+- **Deployment:** Vercel (Frontend), Render (Backend)
 
 ---
 
@@ -105,11 +106,29 @@ Ikkashin-LMS/
 
 ---
 
-## 🔑 Authentication
+## 🔐 Authentication Flow
 
-- **JWT** is used for secure login and logout.
-- Protected routes for assignment upload and viewing submissions.
-- Logout clears the JWT token from localStorage.
+- **Registration & Login:**  
+  - Students register and log in using `/api/users/register` and `/api/users/login`.
+  - On successful login, a JWT is stored in `localStorage`.
+
+- **Protected Routes:**  
+  - Backend uses `authMiddleware` to protect sensitive routes.
+  - Only authenticated users can upload assignments or view submissions.
+
+- **Logout:**  
+  - Logging out clears the JWT token from `localStorage`.
+
+---
+
+### 📚 API Endpoints
+
+| Method | Route                        | Description                |
+|--------|----------------------------- |----------------------------|
+| POST   | `/api/users/register`        | Register new student       |
+| POST   | `/api/users/login`           | Login & get JWT            |
+| POST   | `/api/submissions/submit`    | Submit assignment          |
+| GET    | `/api/submissions/all`       | View all submissions       |
 
 ---
 
@@ -125,19 +144,20 @@ Ikkashin-LMS/
    ```bash
    cd backend
    npm install
+   ```
 
-   ## ENV for backend
+   **Create a `.env` file in the backend directory with the following content:**
+    ```
+    MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.frdj16f.mongodb.net/ikkashin-lms?retryWrites=true&w=majority&appName=Cluster0
+    PORT=5000
+    JWT_SECRET=your_jwt_secret
 
-```
-MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.frdj16f.mongodb.net/ikkashin-lms?retryWrites=true&w=majority&appName=Cluster0
-PORT=5000
-JWT_SECRET=your_jwt_secret
+    CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+    CLOUDINARY_API_KEY=your_cloudinary_api_key
+    CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+   ```
 
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-
-```
+   ```bash
    npm run dev 
    ```
 
@@ -149,8 +169,8 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
    ```
 
 4. **Visit:**  
-   - Frontend: `https://ikkashin-lms.vercel.app/login`
-   - Backend: `https://ikkashin-lms.onrender.com/`
+   - Frontend: [https://ikkashin-lms.vercel.app/login](https://ikkashin-lms.vercel.app/login)
+   - Backend: [https://ikkashin-lms.onrender.com/](https://ikkashin-lms.onrender.com/)
 
 ---
 
@@ -162,7 +182,7 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## 📧 Contact
 
-For any queries or feedback, please contact [Email](mailto:badri.singh8090@gmail.com).
+For any queries or feedback, please contact [badri.singh8090@gmail.com](mailto:badri.singh8090@gmail.com).
 
 ---
 
