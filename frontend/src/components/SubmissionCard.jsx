@@ -25,7 +25,7 @@ export default function SubmissionCard({ submission }) {
           View Attachment
         </a>
       )}
-      <div className="text-right text-xs text-blue-300 mt-2">
+      <div className="text-right text-md text-blue-500 mt-2">
         {submission.createdAt
           ? new Date(submission.createdAt).toLocaleString()
           : ""}
