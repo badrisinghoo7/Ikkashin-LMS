@@ -13,7 +13,7 @@ export default function SubmissionCard({ submission }) {
       </div>
       <div className="mb-2">
         <div className="font-bold text-blue-600">Title: {submission.title}</div>
-        <div className="text-blue-500 text-sm">Desc:{submission.description}</div>
+        <div className="text-blue-500 text-sm">{submission.description}</div>
       </div>
       {submission.fileUrl && (
         <a
